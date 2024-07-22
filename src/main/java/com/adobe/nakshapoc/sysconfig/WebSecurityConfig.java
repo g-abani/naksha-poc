@@ -23,7 +23,7 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityChainFilter(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((request) ->
-            request.requestMatchers("/hallo-anonymous","/generate/*", "fetch").permitAll()
+            request.requestMatchers("/hallo-anonymous","/generate/*", "fetch", "/config").permitAll()
             .anyRequest().authenticated());
         http.csrf((csrf) -> csrf.disable())
         .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
